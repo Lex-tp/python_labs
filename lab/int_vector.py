@@ -3,20 +3,20 @@ n: int = 0
 
 try:
     n = int(input('Введите размерность целочисленого вектора: '))
-except TypeError:
-    print('Размерность должно быть число и больше 0!')
-
-print('Введите элементы вектора:')
+except ValueError:
+    print('Ошибка: Размерность вектора не является целым числом!')
 
 if n > 0:
+    print('Введите элементы вектора:')
     for i in range(1, n + 1):
         try:
             element: int = int(input(f'A[{i}] = '))
             vector_a.append(element)
-        except TypeError:
-            print('Введено не число!')
+        except ValueError:
+            print('Ошибка: Вектор может содержать только целые числа!')
+            break
 
-    print('Исходный массив: ')
+    print('Вектора: ')
     print(f'A={vector_a}')
 
     negative_numbers = list(filter(lambda el: el < 0, vector_a))
@@ -25,4 +25,4 @@ if n > 0:
     vector_b = negative_numbers + positive_numbers
     print(f'B={vector_b}')
 else:
-    print('Размерность массива не может быть меньше 1!')
+    print('Ошибка: Размерность массива не может быть меньше 1!')
