@@ -1,0 +1,1 @@
+import lab.translate_strings
